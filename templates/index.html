@@ -1,0 +1,140 @@
+{% from '_macro.html' import render_field %}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sivot</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="{{ url_for('static',filename="css/bootstrap.min.css" )}}">
+	<link rel="stylesheet" href="{{ url_for('static',filename="css/style.css")}}">
+	<!-- Colores -->
+	<link rel="stylesheet" href="{{ url_for('static',filename="css/color.css")}}" title="blue">
+
+
+
+	
+</head>
+<body>
+<!-- #Foto de precarga -->
+	<div id="st-preloader">
+		<div id="pre-status">
+			<div class="preload-placeholder"></div>
+		</div>
+	</div><!-- /#Foto de precarga -->
+
+	<section id="home-page">
+		<div class="container-fluid home-bg">
+			<div class="row">
+				<div class="col-md-12 text-center home-page">
+					
+					<h1>Para las proximas elecciones</h1>
+					<h2>FALTAN!</h2>
+					<div class="container">
+						<!-- cajas de contadores -->      
+						<div class="row">
+							<div class="col-sm-12 tk-countdown">
+								<div class="row">
+
+								</div>
+							</div>
+						</div>
+						<!-- /Cajas de Contadores -->
+					</div>
+					<p>Inicia sesión o registrese para votar</p>
+					<form id="subscribe" class="form-group subscribe-area" method="GET" method="POST">
+						
+						<label class="btn btn-primary btn-lg submit-b"> <a href="login">Votar aqui!</a></label>
+						|  O  |
+						<label class="btn btn-primary btn-lg submit-b"> <a href="registrar">Registrarse!</a></label>
+						|  O  |
+						<label class="btn btn-primary btn-lg submit-b"> <a href="resultados">Ver resultados!</a></label>
+						<br>
+						<br>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</section><!-- /#home-page -->
+	<section id="about-page">
+	</section><!-- Separación negra-->
+	
+	<section id="service-page">
+		
+				<h1>¿Qué ofrecemos?</h1>
+				<p>Este sistema de votación, plantea al votante poder su derecho al voto de manera rápida y ágil,
+					<br>permitiendo al usuario votar con su huella digital para así garantizar su derecho al voto y que se muestre en tiempo real al ganador de esta,
+					<br>reducir la cantidad de desechos en papel y cartón producidas en esta</p>
+		
+	</section><!-- /#service-page -->
+	
+	<section id="contact-page">
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<form id="ContactForm" method="POST" class="contact-form-area text-center">
+						<input method="POST" type="hidden" name="csrf_token" value="{{ csrf_token() }}">   	
+						<div class="service-aro-icon">
+							<div class="service-aro-left"></div>
+								<i class="fa fa-envelope"></i>
+							<div class="service-aro-right"></div>
+						</div>
+                        
+						<h2>Contáctanos</h2>
+						<p>Escribe tus datos para que podamos hablar contigo</p>
+						<div class="contact-form">
+                            <div class="row">
+							<div class="col-sm-5 your-name col-sm-offset-1">
+								<div class="form-group">
+									{{render_field(form.nombre, class='form-control')}}
+								</div>
+							</div>
+							<div class="col-sm-5 your-email">
+								<div class="form-group">
+									{{render_field(form.email, class='form-control', type="email")}}
+								</div>
+							</div>
+							<div class="col-sm-10 your-message col-sm-offset-1">
+								<div class="form-group">
+									{{render_field(form.message, class="form-control")}}
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn btn-primary btn-lg submit-button" >Enviar</button>
+								</div>
+							</div>
+                            </div>     
+						</div>
+					
+					</form>
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+				</div>
+			</div><!--/.row-->
+		</div><!-- /.container -->
+	</section><!-- /#contact-page -->
+
+
+
+
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<p>&copy; 2022 <strong></strong>. All Rights Reserved. Designed by <strong><a href="#" target="_blank">Sivot</a></strong></p>
+				</div>
+			</div>
+		</div>
+	</footer><!-- /.footer -->
+	
+	<!-- JS -->
+
+
+	<script src="{{ url_for('static', filename='js/scripts.js' )}}"> </script><!-- Scripts -->
+	<script src="{{ url_for('static', filename='js/jquery.ajaxchimp.js' )}}"> </script><!-- ajaxchimp -->
+	<script src="{{ url_for('static', filename='js/countdown.js' )}}"> </script><!-- ajaxchimp -->	
+	<script src="{{ url_for('static', filename='js/eventos.js')}}"> </script>
+</body>
+</html>
